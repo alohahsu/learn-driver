@@ -1,4 +1,3 @@
-
 #include <linux/module.h>
 //#include <linux/time.h>
 //#include <linux/timekeeping.h>
@@ -13,7 +12,7 @@ static void say_hello(void)
 {
 	int i;
 	for (i = 1; i <= num; i++)
-      		pr_info("[%d/%d] Hello!\n",i,num);
+      		pr_info("[%d/%d] Hello!\n", i, num);
 }
 
 static int __init first_init(void)
@@ -32,8 +31,7 @@ static void __exit first_exit(void)
 	//pr_info("Unloading module after %ld seconds\n",
 			//end_time.tv_sec - start_time.tv_sec);
 	end_time = ktime_get_seconds();
-	pr_info("Unloading module after %lld seconds\n",
-			end_time - start_time);
+	pr_info("Unloading module after %lld seconds\n", end_time - start_time);
 	say_hello();
 }
 
