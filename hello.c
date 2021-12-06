@@ -29,7 +29,7 @@ static void __exit first_exit(void)
 	//struct timeval end_time;
 	//do_gettimeofday(&end_time);
 	//pr_info("Unloading module after %ld seconds\n",
-			//end_time.tv_sec - start_time.tv_sec);
+	//end_time.tv_sec - start_time.tv_sec);
 	end_time = ktime_get_seconds();
 	pr_info("Unloading module after %lld seconds\n", end_time - start_time);
 	say_hello();
