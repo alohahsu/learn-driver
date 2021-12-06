@@ -3,7 +3,7 @@
 //#include <linux/timekeeping.h>
 
 static int num = 10;
-//static struct timeval start_time;
+// static struct timeval start_time;
 static time64_t start_time, end_time;
 
 module_param(num, int, S_IRUGO);
@@ -12,12 +12,12 @@ static void say_hello(void)
 {
 	int i;
 	for (i = 1; i <= num; i++)
-      		pr_info("[%d/%d] Hello!\n", i, num);
+		pr_info("[%d/%d] Hello!\n", i, num);
 }
 
 static int __init first_init(void)
 {
-//	do_gettimeofday(&start_time);
+	//	do_gettimeofday(&start_time);
 	start_time = ktime_get_seconds();
 	pr_info("Loading first!\n");
 	say_hello();
@@ -26,10 +26,10 @@ static int __init first_init(void)
 
 static void __exit first_exit(void)
 {
-	//struct timeval end_time;
-	//do_gettimeofday(&end_time);
-	//pr_info("Unloading module after %ld seconds\n",
-	//end_time.tv_sec - start_time.tv_sec);
+	// struct timeval end_time;
+	// do_gettimeofday(&end_time);
+	// pr_info("Unloading module after %ld seconds\n",
+	// end_time.tv_sec - start_time.tv_sec);
 	end_time = ktime_get_seconds();
 	pr_info("Unloading module after %lld seconds\n", end_time - start_time);
 	say_hello();
